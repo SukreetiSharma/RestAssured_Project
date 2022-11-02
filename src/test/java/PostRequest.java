@@ -4,11 +4,9 @@ import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
-import org.junit.jupiter.api.BeforeAll;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import static io.restassured.RestAssured.given;
 
 public class PostRequest {
@@ -16,6 +14,7 @@ public class PostRequest {
     void setup(){
         RestAssured.baseURI = "https://reqres.in/";
     }
+
     @Test
     void RecordCreated(){
         RequestSpecification httpRequest = given();

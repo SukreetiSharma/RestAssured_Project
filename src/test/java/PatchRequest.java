@@ -8,7 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class PatchRequest {
-
         @Test
         void UpdateUserDetails() {
             RestAssured.baseURI = "https://reqres.in/";

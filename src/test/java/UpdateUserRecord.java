@@ -8,12 +8,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class UpdateUserRecord {
-
     @Test
     void UpdateUserDetails(){
     RestAssured.baseURI = "https://reqres.in/";
     RequestSpecification httpRequest = RestAssured.given();
-    //Request payload sending along with post request
     JSONObject RequestParams = new JSONObject();
     RequestParams.put("name","morpheus");
     RequestParams.put("job","zion resident");
@@ -26,5 +24,4 @@ public class UpdateUserRecord {
     System.out.println("Status line is :" +StatusLine);
     Assert.assertEquals(StatusLine,"HTTP/1.1 200 OK");
 }
-
 }

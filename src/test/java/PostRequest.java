@@ -30,5 +30,14 @@ public class PostRequest {
         System.out.println("Status line is :" +StatusLine);
         Assert.assertEquals(StatusLine,"HTTP/1.1 201 Created");
     }
+    @Test
+    void ResgisterSuccesfully(){
+        given()
+                .queryParam("email", "eve.holt@reqres.in")
+                .queryParam( "password", "pistol")
+                .accept("application/json").when().get("/api/register").
+                then().assertThat().
+                statusCode(200);
+    }
 }
 

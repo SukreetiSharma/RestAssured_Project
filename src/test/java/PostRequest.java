@@ -1,4 +1,5 @@
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
@@ -32,12 +33,13 @@ public class PostRequest {
     }
     @Test
     void ResgisterSuccesfully(){
+        String JsonString = "{\"email\" : \"eve.holt@reqres.in\",\"password\" : \"pistol\"}";
         given()
-                .queryParam("email", "eve.holt@reqres.in")
-                .queryParam( "password", "pistol")
-                .accept("application/json").when().get("/api/register").
+                .contentType(ContentType.JSON)
+                .body(JsonString)
+                .when().post("/api/register").
                 then().assertThat().
-                statusCode(200);
+                statusCode(200).log().body();
     }
 }
 

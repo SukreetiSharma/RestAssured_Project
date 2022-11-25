@@ -5,11 +5,18 @@ import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 import org.json.simple.JSONObject;
 import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static io.restassured.RestAssured.given;
+
 public class PatchRequest {
+    @BeforeClass
+    void setup(){
+        RestAssured.baseURI = "https://reqres.in";
+    }
         @Test
-        void UpdateUserDetails() {
+        void UpdateUserDetails(){
             RestAssured.baseURI = "https://reqres.in/";
             RequestSpecification httpRequest = RestAssured.given();
             //Request payload sending along with post request
